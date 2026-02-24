@@ -235,13 +235,28 @@ embeddings.search("query", graph=True)
 Subindexes can be queried as follows:
 
 ```python
+# Build index with subindexes
+embeddings = Embeddings(
+  content=True,
+  defaults=False,
+  indexes={
+    "keyword": {
+      "keyword": True
+    },
+    "dense":{
+      "dense": True
+    }
+  }
+)
+embeddings.index(stream())
+
 # Query with index parameter
-embeddings.search("query", index="subindex1")
+embeddings.search("query", index="keyword")
 
 # Specify with SQL
 embeddings.search("""
 SELECT id, text, score FROM txtai
-WHERE similar('query', 'subindex1')
+WHERE similar('query', 'keyword')
 """)
 ```
 

@@ -48,7 +48,21 @@ class Agent:
         # Agent memory
         self.memory = {}
         self.window = memory
-        self.template = template
+
+        # Create template
+        self.template = Template(
+            template
+            if template
+            else """{{ text }}
+{% if memory %}
+Use the following conversation history to help answer the question above.
+
+{{ memory }}
+
+If the history is irrelevant, forget it and use other tools to answer the question.
+{% endif %}
+"""
+        )
 
     def __call__(self, text, maxlength=8192, stream=False, session=None, reset=False, **kwargs):
         """
@@ -95,20 +109,6 @@ class Agent:
             formatted instructions
         """
 
-        template = (
-            self.template
-            if self.template
-            else """{{ text }}
-{% if memory %}
-Use the following conversation history to help answer the question above.
-
-{{ memory }}
-
-If the history is irrelevant, forget it and use other tools to answer the question.
-{% endif %}
-"""
-        )
-
         # pylint: disable=E1133
         memory = []
         if self.memory.get(session):
@@ -119,7 +119,7 @@ If the history is irrelevant, forget it and use other tools to answer the questi
             memory = "\n\n".join(memory)
 
         # Command template with memory
-        return Template(template).render(text=text, memory=memory)
+        return self.template.render(text=text, memory=memory)
 
     def instructions(self, config):
         """

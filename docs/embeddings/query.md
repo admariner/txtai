@@ -132,8 +132,11 @@ embeddings = Embeddings(content=True, objects=True)
 request = open("demo.gif", "rb")
 
 # Insert record
-embeddings.index([("txtai", {"text": "txtai executes machine-learning workflows.",
-                             "object": request.read()})])
+embeddings.index([(
+  "txtai",
+  {"text": "txtai executes machine-learning workflows.",
+   "object": request.read()}
+)])
 
 # Query txtai and get associated object
 query = "SELECT object FROM txtai WHERE similar('machine learning') LIMIT 1"
@@ -212,7 +215,9 @@ When an embeddings database has both a sparse and dense index, both indexes will
 
 ```python
 embeddings.search("query", weights=0.5)
-embeddings.search("SELECT id, text, score FROM txtai WHERE similar('query', 0.5)")
+embeddings.search(
+  "SELECT id, text, score FROM txtai WHERE similar('query', 0.5)"
+)
 ```
 
 ## Graph search

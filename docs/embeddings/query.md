@@ -177,12 +177,14 @@ The following example indexes a json extraction field (`filepath`) and the lengt
 
 ```python
 # Create embeddings index
-embeddings = Embeddings(path="sentence-transformers/nli-mpnet-base-v2",
-                        content=True,
-                        expressions=[
-                          {"name": "filepath", "index": True},
-                          {"name": "textlength", "expression": "length(text)", "index": True}
-                        ])
+embeddings = Embeddings(
+  path="sentence-transformers/nli-mpnet-base-v2",
+  content=True,
+  expressions=[
+    {"name": "filepath", "index": True},
+    {"name": "textlength", "expression": "length(text)", "index": True}
+  ]
+)
 
 embeddings.search("SELECT textlength, filepath FROM txtai LIMIT 1")
 ```

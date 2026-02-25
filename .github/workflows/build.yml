@@ -66,7 +66,8 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
 
       - name: Test Coverage
-        run: coveralls --service=github --ignore-errors
+        run: coveralls --service=github
+        continue-on-error: true
         if: matrix.os == 'ubuntu-latest'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

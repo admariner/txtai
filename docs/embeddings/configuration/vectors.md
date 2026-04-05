@@ -12,7 +12,8 @@ Sets the path for a vectors model. When using a transformers/sentence-transforme
 
 ## method
 ```yaml
-method: transformers|sentence-transformers|llama.cpp|litellm|model2vec|external|words
+method: transformers|sentence-transformers|llama.cpp|litellm|model2vec|external|
+        words
 ```
 
 Embeddings method to use. If the method is not provided, it is inferred using the `path`.
@@ -28,6 +29,8 @@ Builds embeddings using a transformers model. While this can be any transformers
 from `transformers` to `meanpooling`, `clspooling` or `latepooling` respectively.
 
 Setting `maxlength` to `True` enables truncating inputs to the `max_seq_length`. Setting `maxlength` to an integer will truncate inputs to that value. When omitted (default), the `maxlength` will be set to either the model or tokenizer maxlength.
+
+Supports loading ONNX models directly. [See this section for more](../../../examples/#model-training).
 
 ### sentence-transformers
 

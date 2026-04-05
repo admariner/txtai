@@ -4,7 +4,7 @@ Pooling module tests
 
 import unittest
 
-from txtai.models import Models, ClsPooling, MeanPooling, PoolingFactory
+from txtai.models import Models, ClsPooling, LastPooling, MeanPooling, PoolingFactory
 
 
 class TestPooling(unittest.TestCase):
@@ -34,6 +34,21 @@ class TestPooling(unittest.TestCase):
         self.assertEqual(type(pooling), ClsPooling)
 
         # Test CLS pooling encoding
+        self.assertEqual(pooling.encode(["test"])[0].shape, (768,))
+
+    def testLast(self):
+        """
+        Test last pooling
+        """
+
+        # Test last pooling
+        pooling = PoolingFactory.create({"path": "neuml/bert-tiny-sts-last-pooling", "device": self.device})
+        self.assertEqual(type(pooling), LastPooling)
+
+        pooling = PoolingFactory.create({"method": "lastpooling", "path": "sentence-transformers/nli-mpnet-base-v2", "device": self.device})
+        self.assertEqual(type(pooling), LastPooling)
+
+        # Test last pooling encoding
         self.assertEqual(pooling.encode(["test"])[0].shape, (768,))
 
     def testLength(self):

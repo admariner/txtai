@@ -5,8 +5,21 @@ The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction)
 The API can be configured to handle MCP requests. All enabled endpoints set in the API configuration are automatically added as MCP tools.
 
 ```yaml
-mcp: True
+mcp: boolean|dict
 ```
+
+When `mcp` is a boolean, default arguments are used. When `mcp` is a dictionary it supports the following options.
+
+```yaml
+mcp:
+  clientargs: http client options (dict)
+  mcpargs: FastApiMCP options (dict)
+```
+
+See the following links for details on the options.
+
+- [HTTP Client Arguments](https://www.python-httpx.org/api/#asyncclient)
+- [FastApiMCP Arguments](https://github.com/tadata-org/fastapi_mcp/blob/main/fastapi_mcp/server.py#L22)
 
 Once this configuration option is added, a new route is added to the application `/mcp`. 
 

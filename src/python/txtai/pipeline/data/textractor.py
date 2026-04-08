@@ -52,7 +52,7 @@ class Textractor(Segmentation):
         self.headers = headers if headers else {}
 
         # Safe open mode. When set only local temp urls (or a specified directory) and non-private URLs are supported
-        self.safeopen = os.path.abspath(tempfile.gettempdir() if isinstance(safeopen, bool) else safeopen) if safeopen else safeopen
+        self.safeopen = os.path.realpath(tempfile.gettempdir() if isinstance(safeopen, bool) else safeopen) if safeopen else safeopen
 
     def text(self, text):
         # Check if text is a valid file path or url

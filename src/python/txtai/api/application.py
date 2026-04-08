@@ -122,7 +122,7 @@ def lifespan(application):
 
 def createmcp(application, config):
     """
-    Create a MCP service if application.
+    Create a MCP service if necessary.
 
     Args:
         application: FastAPI Application

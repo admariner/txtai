@@ -58,6 +58,7 @@ tabular:
 
 # Text extraction
 textractor:
+    safeopen: /tmp/txtai
 
 # Text to speech
 texttospeech:

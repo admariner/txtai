@@ -104,7 +104,7 @@ class Textractor(Segmentation):
 
         # Safe open validation
         if not self.safecheck(path):
-            raise IOError(f"Safeopen URL validation failed: {path}")
+            raise IOError(f"Safeopen URL validation failed: path={os.path.realpath(path)}, safeopen={self.safeopen}")
 
         # Consider local files and HTTP urls valid
         return (path if exists or urlparse(path).scheme in ("http", "https") else None, exists)

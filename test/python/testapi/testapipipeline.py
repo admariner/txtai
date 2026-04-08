@@ -312,6 +312,11 @@ class TestPipeline(unittest.TestCase):
         # Check length of text is as expected
         self.assertEqual(len(text), 2471)
 
+        # Check invalid URLs
+        for url in ["http://192.168.1.1/path", "http://127.0.0.1/path", "http://invalid", "/etc/config"]:
+            with self.assertRaises(IOError):
+                self.client.get(f"textract?file={url}").json()
+
     def testTextractorBatch(self):
         """
         Test batch textractor via API

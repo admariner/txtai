@@ -16,6 +16,8 @@ The [backend](../filetohtml/#txtai.pipeline.FileToHTML.__init__) parameter sets 
 
 See the [FiletoHTML](../filetohtml) and [HTMLToMarkdown](../htmltomd) pipelines to learn more on the dependencies necessary for each of those pipelines.
 
+Note that the default parameters enable access to all local files and all URLs. The `safeopen` parameter limits this to only files in a specified directory (defaults to temp directory) and public URLs. When running the textractor pipeline through an Application or via the API, `safeopen` defaults to True. It can be disabled if desired via configuration.
+
 ## Example
 
 The following shows a simple example using this pipeline.

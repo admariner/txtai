@@ -8,9 +8,9 @@ See the table below for the current recommended models. These models all allow c
 | ---------------------------------------------------- | ------------------------------------------------------------------------ |
 | [Embeddings](../embeddings)                          | [all-MiniLM-L6-v2](https://hf.co/sentence-transformers/all-MiniLM-L6-v2) | 
 | [Image Captions](./pipeline/image/caption.md)        | [BLIP](https://hf.co/Salesforce/blip-image-captioning-base)              |
-| [Labels - Zero Shot](./pipeline/text/labels.md)      | [BART-Large-MNLI](https://hf.co/facebook/bart-large)                     |
+| [Labels - Zero Shot](./pipeline/text/labels.md)      | [DeBERTa v3 Zeroshot](https://hf.co/MoritzLaurer/deberta-v3-base-zeroshot-v2.0-c)                     |
 | [Labels - Fixed](./pipeline/text/labels.md)          | Fine-tune with [training pipeline](./pipeline/train/trainer.md)          |
-| [Large Language Model (LLM)](./pipeline/text/llm.md) | [gpt-oss-20b](https://huggingface.co/openai/gpt-oss-20b)                 |
+| [Large Language Model (LLM)](./pipeline/text/llm.md) | [Gemma 4 31B](https://hf.co/google/gemma-4-31B)                          |
 | [Summarization](./pipeline/text/summary.md)          | [DistilBART](https://hf.co/sshleifer/distilbart-cnn-12-6)                |
 | [Text-to-Speech](./pipeline/audio/texttospeech.md)   | [ESPnet JETS](https://hf.co/NeuML/ljspeech-jets-onnx)                    |
 | [Transcription](./pipeline/audio/transcription.md)   | [Whisper](https://hf.co/openai/whisper-base)                             | 
@@ -22,6 +22,5 @@ See the following links to learn more.
 
 - [Hugging Face Tasks](https://hf.co/tasks)
 - [Hugging Face Model Hub](https://hf.co/models)
-- [MTEB Leaderboard](https://hf.co/spaces/mteb/leaderboard)
-- [LMSYS LLM Leaderboard](https://chat.lmsys.org/?leaderboard)
-- [Open LLM Leaderboard](https://hf.co/spaces/HuggingFaceH4/open_llm_leaderboard)
+- [Embeddings Leaderboard](https://hf.co/spaces/mteb/leaderboard)
+- [LLM Leaderboard](https://hf.co/spaces/lmarena-ai/arena-leaderboard)
